@@ -53,16 +53,27 @@ class MainTest {
         Spot spotHead = new Spot("head", 0,0);
         treeA = BST.insert(treeA, spotHead);
         assertEquals(new BST<Spot>(spotA,
+                        new BST<>(spotLeft,
+                                null,
+                                new BST<>(spotLeft2, null, new BST<>(spotHead, null,null))),
+                        new BST<>(spotRight,
+                                null,
+                                new BST<>(spotRight2, null, null))),
+                treeA);
+
+        Spot spotNull = null;
+        treeA = BST.insert(treeA, spotNull);
+        assertEquals(new BST<Spot>(spotA,
                         new BST<>(spotLeft, null, new BST<>(spotLeft2, null, new BST<>(spotHead, null,null))),
                         new BST<>(spotRight, null, new BST<>(spotRight2, null, null))),
                 treeA);
 
-//        Spot spotNull = new Spot(null,null,null);
-//        treeA = BST.insert(treeA, spotNull);
-//        assertEquals(new BST<Spot>(spotA,
-//                        new BST<>(spotLeft, null, new BST<>(spotLeft2, null, new BST<>(spotHead, null,null))),
-//                        new BST<>(spotRight, null, new BST<>(spotRight2, null, null))),
-//                treeA);
+
+    }
+
+    @Test
+    void testBSTDelete(){
+
     }
 
 }
