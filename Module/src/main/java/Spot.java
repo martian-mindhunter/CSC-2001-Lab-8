@@ -31,12 +31,15 @@ public record Spot(String name, double longitude, double latitude) implements Co
 
     // Compares the longitude of the spot vs the other spot; <, ==, >
     public int compareTo(Spot other){
+        if(other == null){
+            return 0;
+        }
         if(other.longitude < this.longitude){
             return -1;
-        } else if(other.longitude == this.longitude){
-            return 0;
-        } else {
+        } else if(other.longitude > this.longitude){
             return 1;
+        } else {
+            return 0;
         }
     }
 
