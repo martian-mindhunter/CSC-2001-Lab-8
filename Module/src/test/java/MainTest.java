@@ -151,4 +151,31 @@ class MainTest {
         }
     }
 
+    @Test
+    void testGreatestLowerBound(){
+
+        Spot spotLeft = new Spot("left", -30, 0);
+        Spot spotRight = new Spot("rite", 30, 0);
+        Spot spotLeft2 = new Spot("left", -15,0);
+        Spot spotRight2 = new Spot("rite", 40, 0);
+        Spot spotHead = new Spot("head", 0,0);
+        BST<Spot> lowerTree = new BST<Spot>(spotA,
+                new BST<>(spotLeft,
+                        null,
+                        new BST<>(spotLeft2,
+                                null, new BST<>(spotHead, null,null))),
+                new BST<>(spotRight,
+                        null,
+                        new BST<>(spotRight2,
+                                null, null)));
+
+        assertEquals(spotLeft, BST.greatestLowerBound(lowerTree, -30));
+        assertEquals(spotRight, BST.greatestLowerBound(lowerTree, 30));
+        assertEquals(spotLeft2, BST.greatestLowerBound(lowerTree, -15));
+        assertEquals(spotRight2, BST.greatestLowerBound(lowerTree, 40));
+        assertEquals(spotA, BST.greatestLowerBound(lowerTree, 0));
+        assertEquals(null, BST.greatestLowerBound(null,0));
+
+    }
+
 }

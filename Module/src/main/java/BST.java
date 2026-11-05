@@ -81,4 +81,27 @@ public record BST<T extends Comparable<T>>(T elt, BST<T> left, BST<T> right){
         return tree;
     }
 
+    // Uses a BST and Longitude & finds spot closest to Longitude w/o being >
+    public static Spot greatestLowerBound(BST<Spot> tree, double targetLong){
+        Spot holdSpot = null;
+
+        if(tree == null){
+            return null;
+        }
+
+        while(tree != null){
+            double currentLong = tree.elt().longitude();
+
+            if(currentLong == targetLong){
+                return tree.elt();
+            } else if(currentLong < targetLong){
+                holdSpot = tree.elt();
+                tree = tree.right();
+            } else {
+                tree = tree.left();
+            }
+        }
+        return holdSpot;
+    }
+
 }

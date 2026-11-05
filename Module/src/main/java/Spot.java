@@ -43,4 +43,6 @@ public record Spot(String name, double longitude, double latitude) implements Co
         }
     }
 
+
+
 }
