@@ -132,7 +132,7 @@ class MainTest {
     @Test
     void testBSTTime(){
 
-        int[] sizes = {1000, 100000, 1000000, 10000000, 1000000000};
+        int[] sizes = {1000, 100000, 1000000, 10000000, 50000000};
 
         for(int size : sizes){
 
@@ -148,32 +148,6 @@ class MainTest {
 
             IO.println(size + ": " + duration + " microseconds");
 
-//            while (true) {
-//
-//                BST<Spot> testTree = new BST<>(null, null, null);
-//
-//                long startTime = System.nanoTime();
-//
-//                for (int i = 0; i < currentN; i++) {
-//                    testTree = BST.insert(testTree, Spot.randomSpot());
-//                }
-//
-//                long endTime = System.nanoTime();
-//                long duration = (endTime - startTime) / 1000000;
-//
-//                if (duration > t) {
-//                    if (priorN == 0) {
-//                        IO.println("1 elt was > " + t + " ms\n");
-//                    } else {
-//                        IO.println(t + " ms: Largest sequence under limit is: " + priorN + " elts\n");
-//                    }
-//                    break;
-//                }
-//
-//                priorN = currentN;
-//                currentN *= 100;
-//
-//            }
         }
     }
 
